@@ -7,9 +7,34 @@ from visits.models import PageVisit
 def home_page_view(request, *args, **kwargs):
     qs = PageVisit.objects.all()
     page_qs = PageVisit.objects.filter(path=request.path)
+    
+    try:
+        percent = (page_qs.count() / qs.count()) * 100.0
+    except:
+        percent = 0
+
     context = {
         "page_visit_count": page_qs.count(),
-        "total_visit_count": qs.count()
+        "total_visit_count": qs.count(),
+        "percent": percent
+    }
+    
+    PageVisit.objects.create(path=request.path)
+    return render(request, "home.html", context)
+
+def about_view(request, *args, **kwargs):
+    qs = PageVisit.objects.all()
+    page_qs = PageVisit.objects.filter(path=request.path)
+
+    try:
+        percent = (page_qs.count() / qs.count()) * 100.0
+    except:
+        percent = 0
+
+    context = {
+        "page_visit_count": page_qs.count(),
+        "total_visit_count": qs.count(),
+        "percent": percent
     }
     
     PageVisit.objects.create(path=request.path)
