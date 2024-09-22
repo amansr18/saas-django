@@ -1,8 +1,12 @@
 from django.http import HttpResponse
 from django.shortcuts import render
+from django.contrib.auth.decorators import login_required
+from django.contrib.admin.views.decorators import staff_member_required
+from django.conf import settings
 
 from visits.models import PageVisit
 
+LOGIN_URL = settings.LOGIN_URL
 
 def home_page_view(request, *args, **kwargs):
     qs = PageVisit.objects.all()
@@ -53,3 +57,11 @@ def pw_protected_view(request, *args, **kwargs):
     if is_allowed:
         return  render(request, "protected/view.html", {})
     return render(request, "protected/entry.html", {})
+
+@login_required
+def user_only_view(request, *args, **kwargs):
+    return render(request, "protected/user_only.html", {})
+
+@staff_member_required
+def staff_only_view(request, *args, **kwargs):
+    return render(request, "protected/user_only.html", {})
