@@ -52,6 +52,8 @@ ALLOWED_HOSTS = [
     'saas-django-production-810e.up.railway.app',
 ]
 
+CSRF_TRUSTED_ORIGINS = ['https://saas-django-production-810e.up.railway.app']
+
 if DEBUG:
     ALLOWED_HOSTS += [
         "127.0.0.1",
