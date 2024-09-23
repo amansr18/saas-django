@@ -19,6 +19,7 @@ from django.urls import path, include
 from auth import views as auth_views
 from subscriptions import views as subscription_views
 from checkouts import views as checkout_views
+from landing import views as landing_views
 from . import views
 
 urlpatterns = [
@@ -28,7 +29,7 @@ urlpatterns = [
     path('checkout/sub-price/<int:price_id>/', checkout_views.product_price_redirect_view, name='sub-price-checkout'),
     path('checkout/start/', checkout_views.checkout_redirect_view, name='stripe-checkout-start'),
     path('checkout/success/', checkout_views.checkout_finalize_view, name='stripe-checkout-end'),
-    path('', views.home_page_view, name='home'),
+    path('', landing_views.landing_dashboard_page_view, name='home'),
     path('pricing/', subscription_views.subscription_price_view, name='pricing'),
     path('pricing/<str:interval>/', subscription_views.subscription_price_view, name='pricing_interval'),
     path('about/', views.about_view),
