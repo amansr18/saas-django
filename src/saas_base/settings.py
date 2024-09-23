@@ -49,6 +49,7 @@ BASE_URL = config("BASE_URL", default=None)
 
 ALLOWED_HOSTS = [
     ".railway.app", # https://saas.prod.railway.app
+    'saas-django-production-810e.up.railway.app',
 ]
 
 if DEBUG:
