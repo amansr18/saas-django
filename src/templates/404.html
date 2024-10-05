@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en" class="dark"> <!-- Applied dark mode class here -->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 - Page Not Found</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
+    </style>
+    <script>
+        tailwind.config = {
+          darkMode: 'class',
+          theme: {
+            extend: {
+              colors: {
+                primary: {
+                  "50": "#eff6ff",
+                  "100": "#dbeafe",
+                  "200": "#bfdbfe",
+                  "300": "#93c5fd",
+                  "400": "#60a5fa",
+                  "500": "#3b82f6",
+                  "600": "#2563eb",
+                  "700": "#1d4ed8",
+                  "800": "#1e40af",
+                  "900": "#1e3a8a",
+                  "950": "#172554"
+                }
+              }
+            },
+            fontFamily: {
+              'body': [
+                'Inter',
+                'ui-sans-serif',
+                'system-ui',
+                '-apple-system',
+                'system-ui',
+                'Segoe UI',
+                'Roboto',
+                'Helvetica Neue',
+                'Arial',
+                'Noto Sans',
+                'sans-serif',
+                'Apple Color Emoji',
+                'Segoe UI Emoji',
+                'Segoe UI Symbol',
+                'Noto Color Emoji'
+              ],
+              'sans': [
+                'Inter',
+                'ui-sans-serif',
+                'system-ui',
+                '-apple-system',
+                'system-ui',
+                'Segoe UI',
+                'Roboto',
+                'Helvetica Neue',
+                'Arial',
+                'Noto Sans',
+                'sans-serif',
+                'Apple Color Emoji',
+                'Segoe UI Emoji',
+                'Segoe UI Symbol',
+                'Noto Color Emoji'
+              ]
+            }
+          }
+        }
+    </script>
+</head>
+<body class="font-body bg-gray-900 text-white"> <!-- Applied dark mode class here -->
+    <section class="bg-gray-900">
+        <div class="py-8 px-4 mx-auto max-w-screen-xl lg:py-16 lg:px-6">
+            <div class="mx-auto max-w-screen-sm text-center">
+                <h1 class="mb-4 text-7xl tracking-tight font-extrabold lg:text-9xl text-primary-500">404</h1>
+                <p class="mb-4 text-3xl tracking-tight font-bold text-white md:text-4xl">Something's missing.</p>
+                <p class="mb-4 text-lg font-light text-gray-400">It seems the <strong>live API key from Stripe</strong> decided to take a vacation 🏝️ from this deployed version. But don't worry! This feature works like a charm when it's back from its break. Until then, check out this YouTube demo where the magic happens (with fewer vacations) 🎩✨.</p>
+                <img src="https://media.giphy.com/media/piL4e4WusrA4S0KODK/giphy.gif?cid=790b761184agf9x7cwvdx8g5n10p45i8mkgzdcif8an9i69s&ep=v1_gifs_search&rid=giphy.gif&ct=g" alt="Funny Gif" class="mx-auto my-6 w-64 rounded-lg">        
+                <p class="text-sm text-gray-500 italic">P.S. No live keys were harmed in the making of this demo! 😎</p>
+                <a href="/" class="inline-flex text-white bg-primary-600 hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:focus:ring-primary-900 my-4">Back to Homepage</a>
+            </div>   
+        </div>
+    </section>
+</body>
+</html>

@@ -34,14 +34,29 @@ def checkout_redirect_view(request):
     success_url = f"{BASE_URL}{success_url_path}"
     cancel_url = f"{BASE_URL}{pricing_url_path}"
     price_stripe_id = obj.stripe_id
-    url = helpers.billing.create_checkout_session(
-        customer_stripe_id,
-        success_url= success_url,
-        cancel_url= cancel_url,
-        price_stripe_id=price_stripe_id,
-        raw=False
-    )
+    # url = helpers.billing.create_checkout_session(
+    #     customer_stripe_id,
+    #     success_url= success_url,
+    #     cancel_url= cancel_url,
+    #     price_stripe_id=price_stripe_id,
+    #     raw=False
+    # )
 
+    try:
+        url = helpers.billing.create_checkout_session(
+            customer_stripe_id,
+            success_url=success_url,
+            cancel_url=cancel_url,
+            price_stripe_id=price_stripe_id,
+            raw=False
+        )
+    except PermissionError as e:
+        # Handle PermissionError and render custom 404
+        context = {
+            "message": "An error occurred with Stripe API keys. Please contact support or try again."
+        }
+        return render(request, '404.html', context, status=404)
+    
     return redirect(url)
 
 def checkout_finalize_view(request):

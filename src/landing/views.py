@@ -5,5 +5,6 @@ from dashboard.views import dashboard_view
 
 def landing_dashboard_page_view(request):
     if request.user.is_authenticated:
-        return dashboard_view(request)
+        # return dashboard_view(request)
+        pass
     return render(request, 'landing/main.html', {})
