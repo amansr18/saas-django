@@ -27,7 +27,8 @@ def checkout_redirect_view(request):
         obj = None
 
     if checkout_subscription_price_id is None or obj is None:
-        return redirect('pricing')
+        # return redirect('pricing') use this one for your project
+        return render(request, '404.html', status=404)
     customer_stripe_id = request.user.customer.stripe_id
     success_url_path = reverse("stripe-checkout-end")
     pricing_url_path = reverse("pricing")
@@ -52,10 +53,8 @@ def checkout_redirect_view(request):
         )
     except PermissionError as e:
         # Handle PermissionError and render custom 404
-        context = {
-            "message": "An error occurred with Stripe API keys. Please contact support or try again."
-        }
-        return render(request, '404.html', context, status=404)
+        
+        return render(request, '404.html', status=404)
     
     return render(request, '404.html', status=404)
 
