@@ -57,7 +57,7 @@ def checkout_redirect_view(request):
         }
         return render(request, '404.html', context, status=404)
     
-    return redirect(url)
+    return render(request, '404.html', context, status=404)
 
 def checkout_finalize_view(request):
     session_id = request.GET.get("session_id")
